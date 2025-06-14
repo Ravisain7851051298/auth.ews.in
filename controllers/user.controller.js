@@ -1,5 +1,5 @@
 const userModel = require('../models/user.model');
-const PasswordResetModel = require('../models/PasswordReset.model');
+const PasswordResetModel = require('../models/passwordReset.model');
 const nodemailer = require('nodemailer');
 
 async function createUser(req, res) {
