@@ -17,7 +17,12 @@ server.listen(process.env?.PORT || 6000, () => {
 connectToDb();
 
 app.use(morgan('dev'));
-app.use(cors());
+const corsOptions = {
+    origin: process.env.FRONTEND_URL || 'https://auth-ews-in.onrender.com',
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

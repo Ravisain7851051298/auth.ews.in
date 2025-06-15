@@ -4,13 +4,13 @@ const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
 
-router.post('/v1/register', userController.createUser);
-router.post('/v1/login', userController.login);
-router.get('/v1/profile', authMiddleware.authUser, userController.getUserProfile);
-router.post('/v1/forgot-password', userController.forgotPassword);
-router.post('/v1/reset-password',authMiddleware.authUser, userController.resetPassword);
-router.post('/v1/logout', authMiddleware.authUser, userController.logout);
-router.put('/v1/profile/update',authMiddleware.authUser, userController.updateUser);
+router.post('/api/v1/auth/register', userController.createUser);
+router.post('/api/v1/auth/login', userController.login);
+router.get('/api/v1/auth/profile', authMiddleware.authUser, userController.getUserProfile);
+router.post('/api/v1/auth/forgot-password', userController.forgotPassword);
+router.post('/api/v1/auth/reset-password',authMiddleware.authUser, userController.resetPassword);
+router.post('/api/v1/auth/logout', authMiddleware.authUser, userController.logout);
+router.put('/api/v1/auth/profile/update',authMiddleware.authUser, userController.updateUser);
 
 
 module.exports = router;
