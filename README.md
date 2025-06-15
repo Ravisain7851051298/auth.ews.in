@@ -24,7 +24,7 @@ Authentication and user management service for the Electrician Work Service (EWS
 
 1. Clone the repository
 2. Install dependencies: 
-git clone https://github.com/yourusername/auth.ews.in.git
+git clone https://github.com/Ravisain7851051298/auth.ews.in.git
 ```sh
 cd auth.ews.in
 npm install
@@ -100,4 +100,4 @@ MIT
 
 ## Base URL
 
-Production server runs at `https://auth-ews-in.onrender.com/api/v1`
+Production server runs at `https://auth-ews-in.onrender.com`
