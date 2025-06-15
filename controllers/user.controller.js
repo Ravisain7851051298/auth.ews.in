@@ -4,11 +4,25 @@ const nodemailer = require('nodemailer');
 
 async function createUser(req, res) {
     try {
-        const hashedPassword = await userModel.hashPassword(req.body.password);
-        const user = await userModel.create({ ...req.body, password: hashedPassword });
-        if (!user) {
-            return res.status(400).json({ message: 'User not created' });
+        // Validate request body
+        if (!req.body || !req.body.password || !req.body.email) {
+            return res.status(400).json({ 
+                message: "Email and password are required" 
+            });
         }
+
+        const hashedPassword = await userModel.hashPassword(req.body.password);
+        const user = await userModel.create({ 
+            ...req.body, 
+            password: hashedPassword 
+        });
+
+        if (!user) {
+            return res.status(400).json({ 
+                message: "Failed to create user" 
+            });
+        }
+
         const token = user.generateAuthToken();
         res.status(201).json({ token });
     } catch (error) {
